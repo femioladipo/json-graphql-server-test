@@ -1,0 +1,4 @@
+import { GraphQLList, GraphQLNonNull } from 'graphql';
+declare const _default: (name: string, values?: any[], isRequired?: boolean) => import("graphql").GraphQLScalarType<Date, any> | import("graphql").GraphQLScalarType<unknown, unknown> | GraphQLList<import("graphql").GraphQLScalarType<boolean, boolean>> | GraphQLNonNull<GraphQLList<import("graphql").GraphQLScalarType<boolean, boolean>>> | GraphQLList<import("graphql").GraphQLScalarType<string, string>> | GraphQLNonNull<GraphQLList<import("graphql").GraphQLScalarType<string, string>>> | GraphQLList<import("graphql").GraphQLScalarType<number, number>> | GraphQLNonNull<GraphQLList<import("graphql").GraphQLScalarType<number, number>>> | GraphQLNonNull<import("graphql").GraphQLScalarType<unknown, unknown>> | GraphQLNonNull<import("graphql").GraphQLScalarType<Date, any>>;
+export default _default;
+//# sourceMappingURL=getTypeFromValues.d.ts.map
