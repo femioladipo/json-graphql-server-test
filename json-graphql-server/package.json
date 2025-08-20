@@ -1,0 +1,77 @@
+{
+    "name": "json-graphql-server",
+    "version": "3.2.1",
+    "type": "module",
+    "main": "./dist/json-graphql-server.cjs",
+    "module": "./dist/json-graphql-server.js",
+    "exports": {
+        ".": {
+            "types": "./dist/client.d.ts",
+            "import": "./dist/json-graphql-server.js",
+            "require": "./dist/json-graphql-server.cjs"
+        },
+        "./node": {
+            "types": "./dist/node.d.ts",
+            "import": "./dist/json-graphql-server-node.js",
+            "require": "./dist/json-graphql-server-node.cjs"
+        }
+    },
+    "repository": "git@github.com:marmelab/json-graphql-server.git",
+    "authors": [
+        "François Zaninotto",
+        "Gildas Garcia"
+    ],
+    "files": [
+        "*.md",
+        "dist",
+        "src",
+        "bin"
+    ],
+    "license": "MIT",
+    "scripts": {
+        "check": "biome check",
+        "format": "biome format --write src",
+        "lint": "biome lint --write src",
+        "precommit": "lint-staged",
+        "test": "cross-env NODE_ENV=test vitest",
+        "server": "node ./bin/json-graphql-server.cjs example/data.cjs",
+        "prepublish": "yarn build",
+        "build": "yarn build-esm-cjs && yarn build-node && yarn build-umd && yarn build-ts",
+        "build-ts": "tsc",
+        "build-esm-cjs": "vite build",
+        "build-node": "vite build -c ./vite.config.node.js",
+        "build-umd": "vite build -c ./vite.config.umd.js"
+    },
+    "lint-staged": {
+        "*.{js,jsx,ts,tsx}": [
+            "biome check --write"
+        ]
+    },
+    "devDependencies": {
+        "@biomejs/biome": "1.9.4",
+        "@types/express": "^4.17.21",
+        "cross-env": "^7.0.3",
+        "husky": "^9.1.7",
+        "lint-staged": "^15.4.3",
+        "supertest": "^7.0.0",
+        "typescript": "^5.7.3",
+        "vite": "^6.1.6",
+        "vitest": "^3.0.5"
+    },
+    "dependencies": {
+        "@apollo/client": "^3.12.11",
+        "@graphql-tools/schema": "^10.0.18",
+        "cors": "^2.8.5",
+        "express": "^4.21.2",
+        "graphql": "^16.10.0",
+        "graphql-http": "^1.22.4",
+        "graphql-type-json": "^0.3.2",
+        "inflection": "^3.0.2",
+        "lodash.merge": "^4.6.2",
+        "xhr-mock": "^2.5.1"
+    },
+    "bin": {
+        "json-graphql-server": "bin/json-graphql-server.cjs"
+    },
+    "packageManager": "yarn@1.22.22+sha512.a6b2f7906b721bba3d67d4aff083df04dad64c399707841b7acf00f6b133b7ac24255f2652fa22ae3534329dc6180534e98d17432037ff6fd140556e2bb3137e"
+}
